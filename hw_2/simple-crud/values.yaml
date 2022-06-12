@@ -1,0 +1,19 @@
+replicaCount: 1
+
+fullnameOverride: "simple-crud-app"
+
+service:
+  port: 80
+
+ingress:
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite "(?i)/otusapp/chernyshev/(.*)$" /$1 break;
+      rewrite "(?i)/$" / break;
+  hosts:
+    - host: arch.homework
+      paths:
+        - path: /
+        
+secret: ewogICAiQ29ubmVjdGlvblN0cmluZ3MiOiB7CiAgICAgIkRhdGFiYXNlIjogIkhvc3Q9cGdzcWwtcG9zdGdyZXNxbC5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsO1BvcnQ9NTQzMjtEYXRhYmFzZT1od18yO1VzZXJuYW1lPWFkbWluO1Bhc3N3b3JkPWFkbWluIgogICB9Cn0=
