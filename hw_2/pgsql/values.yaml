@@ -1,0 +1,8 @@
+global:
+    postgresql:
+        auth:
+            username: "admin"
+            password: "admin"
+    pgpool:
+        adminUsername: "admin"
+        adminPassword: "admin"
